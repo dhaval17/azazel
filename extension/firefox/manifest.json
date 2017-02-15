@@ -1,0 +1,15 @@
+{
+  "manifest_version": 2,
+  "name": "Azazel",
+  "version": "1.0",
+  "description": "Logs Headers and Libraries",
+  "icons": {
+    "48": "icons/icon-48.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*"],
+      "js": ["azazel.js"]
+    }
+  ]
+}
