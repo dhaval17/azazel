@@ -10,8 +10,8 @@ var corsOptions = {
 
 
 var bodyParser = require('body-parser');
-app.use(bodyParser.json()); // support json encoded bodies
-app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
+app.use(bodyParser.json({limit: '50mb'}));
+app.use(bodyParser.urlencoded({limit: '50mb', extended: true}));
 
 app.get('/logger/', function(req, res) {
 	res.send('hello');
@@ -19,7 +19,7 @@ app.get('/logger/', function(req, res) {
 
 app.post('/logger', cors(corsOptions), function (req, res) {
   res.send('Hello World');
-  //console.log(req.body.source + " " + req.body.headers);
+  console.log(req.body.source + " " + req.body.headers);
   //console.log(req);
 })
  
