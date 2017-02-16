@@ -19,7 +19,8 @@ app.get('/logger/', function(req, res) {
 
 app.post('/logger', cors(corsOptions), function (req, res) {
   res.send('Hello World');
-  console.log(req.body.source);
+  //console.log(req.body.source + " " + req.body.headers);
+  //console.log(req);
 })
  
 app.listen(31337);
