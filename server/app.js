@@ -40,9 +40,9 @@ app.post('/logger/', cors(corsOptions), function (req, res) {
   	
 	logger.save(function (err) {
 	  if (err) {
-	    //console.log(err);
+	    console.log(err);
 	  } else {
-	    //console.log('meow');
+	    console.log('meow');
 	  }
 	});
 	
