@@ -6,7 +6,6 @@ mongoose.connect('mongodb://localhost/azazel');
 
 var log = mongoose.model('log', 
 	{ 
-		source: String,
 		headers: String,
 		location: String
 	}
@@ -25,18 +24,11 @@ var bodyParser = require('body-parser');
 app.use(bodyParser.json({limit: '10mb'}));
 app.use(bodyParser.urlencoded({limit: '10mb', extended: true}));
 
-app.get('/logger/', cors(corsOptions), function(req, res) {
-	res.send('hello');
-});
-
 app.post('/logger/', cors(corsOptions), function (req, res) {
 	
   	res.send('Hello World');
-  	//console.log(req.body.source + " " + req.body.headers);
-  	//console.log(req);
-  	//console.log(req.body.source.length + "\n");
   	
-  	var logger = new log({ source: req.body.source, headers: req.body.headers, location: req.body.location });
+  	var logger = new log({ headers: req.body.headers, location: req.body.location });
   	
 	logger.save(function (err) {
 	  if (err) {
