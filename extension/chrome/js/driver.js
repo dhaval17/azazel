@@ -195,7 +195,7 @@
 						xhr.open('POST', 'https://dr4cun0.com/logger/', true);
 			
 						//xhr.overrideMimeType('application/json');
-			
+						xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 						xhr.send("headers=" + encodeURI(JSON.stringify(w.detected[url])) + "&location=" + encodeURI(url));
 				//
 				var i, appName, found = false;
